@@ -1,0 +1,50 @@
+
+body,html{
+	height: 100%;
+	overflow: hidden;
+}
+.warp{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.warp ul{
+	position: absolute;
+	left: 0;
+	width: 20480px;
+	height: 100%;
+}
+.warp ul li{
+	float: left;
+	height: 100%;
+	list-style: none;
+}
+.warp ul li img{
+	width: 1280px;
+	height: 100%;
+}
+.bot{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 150px;
+	width: 100%;
+	background-color: rgba(0,0,0,.4);
+}
+.bot .scroll{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 880px;
+	height: 10px;
+	background-color: rgba(0,0,0,.6);
+}
+.scroll .bar {
+	position: absolute;
+	left: 0;
+	width: 50px;
+	height: 100%;
+	background-color: #fff;
+	cursor: pointer;
+}

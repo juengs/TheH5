@@ -1,0 +1,53 @@
+*{
+	margin:0; /*外边距*/
+	padding: 0; /*内边距*/
+}
+body,html{
+	height: 100%;
+	overflow: hidden;
+}
+.item_content{
+	width: 780px;
+	height: 500px;
+	/*background-color: blue;*/
+	margin: 0 auto;
+}
+#content, #circle{ /*两个相同,注意,逗号(id标识符唯一)*/
+	width: 300px;
+	height: 300px;
+	background-color: #f3f3f3;
+	float: left; /*左浮动*/
+	margin-top: 150px;
+	margin-left: 43px;
+	padding: 20px;
+	/*overflow: hidden;*/
+}
+#content img{
+	width: 300px;
+	height: 300px;
+	/*overflow: hidden;*/
+	border-radius: 40px; /*角弧度方形 google浏览器兼容问题 */
+	-moz-border-radius: 40px; /*解决火狐浏览器的兼容性问题 webkit谷歌和苹果*/
+	box-shadow: 0 0 2px red; /*右移 下移 面积 颜色*/
+}
+
+#circle img{
+	width: 300px;
+	height: 300px;
+	border-radius: 156px; /*像素px*/
+	/*overflow: hidden;*/
+}
+
+.musicPlayer{
+	width: 270px;
+	height: 40px;
+	margin: 0 auto;
+	/*border:1px solid #F0F0F0;*/
+	text-align: center;
+}
+
+.musicPlayer audio{
+	margin-top: 4px;
+}
+
+

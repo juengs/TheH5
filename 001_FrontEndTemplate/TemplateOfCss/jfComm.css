@@ -1,0 +1,32 @@
+/* ******************************************** */
+/*所有标签都清零（不同浏览器都有默认值）*正则匹配影响性能（所以显式的声明）随时根据实际情况测试修改 Author jeff */
+/*英语 define section horizon vertical flow flex     */
+/*强记 figure(图文并茂)插图数字 caption字幕 em px单位 weight粗细 style样式 bold italic aside旁白 flex弯曲变收缩缩放  倒塌塌陷 外边 内边 */
+/*修饰 quote引号 acronym首字母缩略词H5不支持 abbreviate缩写 sup上标sub下标 */
+/* ******************************************** */
+/* ******************************************** */
+/*容器 span divide precent */
+/*输入 textarea input */
+/*输出 render渲染  */
+/*集合 fieldset框 行内标签 span 块级标签,行内标签,行内块标签  */
+/*合并 legend 传奇+图例 */
+/*布局 Position 与 Flexbox，static-default abstract-absolute relative fixed z-index opacity transparency */
+/* ******************************************** */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article {margin: 0;padding: 0;}
+body{font-size: 12px;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display: block;}
+table{border-collapse: collapse;border-spacing: 0}
+audio,canvas,video{display: inline-block;display: inline;zoom:1;}
+fieldset,img{border: none;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style: normal;font-weight: normal;}
+ol,ul{list-style: none;}
+caption,th{text-align: left;}
+h1,h2,h3,h4,h5,h6{font-style:100%;font-weight: normal;}
+q:.zjfengs, q:.jeffs {content: ''}
+abbr,acronym{border-collapse: 0; font-weight: normal;}
+sup{vertical-align: text-top;}
+sub{vertical-align: text-bottom;}
+input,textarea,select{font-family: inherit;font-size: 5;}
+input,textarea,select{font-style: 100%}
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>文字和图片之间的相互动作转换</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		function ttp()
+		{
+			if (tp.filters.revealTrans.status != 2) {
+				tp.filters.revealTrans.apply();
+				//设定转换后的图片
+				tp.innerHTML="<img src='images/1.jpg' style='width:200px;height:110px;'>";
+				tp.filters.revealTrans.play();
+			}
+		}
+		function ptt()
+		{
+			if (tp.filters.revealTrans.status != 2) {
+				tp.filters.revealTrans.apply();
+				tp.innerText="这是文字";//设定转换后的文字
+				tp.filters.revealTrans.play();
+			}
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<p>
+			<div id="tp" style="width: 200px;height: 110px;background-color: lightyellow;color: blue;filter: revealTrans(duration=2,transition=10);">
+				这是开始文字
+			</div>
+		</p>
+		<!-- text to picture -->
+		<button onclick="ttp()">文字转换为图片</button>
+		<!-- picture to text -->
+		<button onclick="ptt()">图片转换为文字</button>
+	</center>
+</body>
+</html>

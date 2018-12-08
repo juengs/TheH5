@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery&css鼠标悬停显示下拉菜单</title>
+	<style type="text/css">
+		/*样式*/
+		
+	</style>
+	
+	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<ul id="nav">   
+    <li><a>首页</a></li>
+    <li><a>新闻中心</a>
+        <ul class="nav2">   
+        <li><a>国内新闻</a></li>
+        <li><a>国外新闻</a></li>
+
+        </ul>
+     </li>
+
+     <li><a>产品中心</a>
+        <ul class="nav2">   
+        <li><a>优惠产品</a></li>
+        <li><a>团购产品</a></li>      
+        </ul>
+     </li>  
+
+     <li><a>联系我们</a></li>  
+
+</ul>
+
+	<script type="text/javascript">
+		$(function() {
+        $("li:has(ul)").hover(function() {
+            $(this).find("a:first").css("background-color","#eee");
+              $(this).find(".nav2").css("display","block");             
+        },function() {
+        $(this).find("a:first").css("background-color","#fff");
+              $(this).find(".nav2").css("display","none"); 
+         });    
+    });
+	</script>
+
+</body>
+</html>

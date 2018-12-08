@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>文字对象1</title>
+	<script type="text/javascript">
+		function show_length(){
+			var texts=document.form1.strings.value.length;
+			document.form2.lengths.value=texts;
+		}
+		function htm_big(){
+			var texts=document.form1.strings.value;
+			texts=texts.big(); //<big>aAaaa</big> 
+			document.form2.lengths.value=texts;
+		}
+		function htm_bold(){
+			var texts=document.form1.strings.value;
+			texts=texts.bold();
+			document.write(texts);
+		}
+		function htm_fontcolor(){
+			var texts=document.form1.strings.value;
+			texts=texts.fontcolor("blue");
+			document.write(texts);
+		}
+		function big_to_small(){
+			var texts=document.form1.strings.value;
+			texts=texts.toLowerCase();
+			document.form2.lengths.value=texts;
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<form name="form1">
+			请输入内容:<br>
+			<!-- input button onclick name id -->
+			<textarea name="strings" rows="5" cols="30"></textarea>
+		</form>
+		<form name="form2">
+			<input type="button" name="" value="显示字符串长度" onclick="show_length()"><br>
+			<input type="button" name="" value=" <big>标记 " onclick="htm_big()"><br>
+			<input type="button" name="" value="全部转换为小写" onclick="big_to_small()"><br>
+			<input type="text" name="lengths" size="40"><p>
+			<input type="button" name="" value="粗体显示" onclick="htm_bold()">
+			<input type="button" name="" value="显示为蓝色文字" onclick="htm_fontcolor()">
+		</form>
+	</center>
+
+</body>
+</html>

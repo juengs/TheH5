@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>水中倒影-filter滤镜/动态效果 FIXME/title>
+</head>
+<body>
+	<img id="reflect" src="./images/01.jpg"><br>
+	<script language="JavaScript">
+		function w(){
+			// 没0.1s 变换10度。
+			setIntervel("ref.filters.wave.phase+=10",100);
+			//垂直波浪线效果 正弦-sine 余弦cosine 正切tan (A-a B C)
+		}
+		// 页面内所有元素的一个集合. 集合0,1,2,3... null
+		if (document.all) {
+			document.write('<img id="ref" src="'+document.all.reflect.src+'" style="filter:wave(strength=3, freg=3, phase=0, lightstrength=30) blur() flipv()" >');
+			//过滤器-滤镜 力度-光焦度 freg 阶段 光焦度-功率-浓度 模糊形状  轻抛
+			//反转 revert reserve reversal 
+			// -阶律 每秒 10度 波浪旋转
+			// -动态模糊 blur dynamic
+			// -垂直翻转 vertical
+			window.onload=w;
+		}
+	</script>
+
+</body>
+</html>

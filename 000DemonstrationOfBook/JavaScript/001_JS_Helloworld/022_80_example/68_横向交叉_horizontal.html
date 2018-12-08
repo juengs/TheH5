@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>css写法 (li=9个,每个li放两个div,一个div紫色一个div白色)</title>
+    <!-- li是单数紫色在前，双数紫色在后 (Javascript) -->
+    <script type="text/javascript">
+        // 单数在前面 (z-index堆叠顺序)
+
+        // 双数在前面 (CSS flex 属性: 平分主容器mian -长-宽-高=相等)
+
+        ///////////////////////////////////////////////////
+        /// flex 使…收缩 -grow扩展 -shrink收缩 =basis基础n. 
+        /// em: centimeter CM厘米, px: piexal像素, % percent百分比. point.
+        /// 相对长度单位EM.(当前对象内文本的字体尺寸) emphasize
+        /// 强调，着重;加强语气;使突出
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 200px;overflow: hidden;
+        }
+        li{
+            float: left;width: 100px;height: 100px;list-style: none;
+        }
+        ul li{
+            background-color: #eee8ac;
+        }
+        ul li:nth-child(4n) {
+            background-color: #dc7092;
+        }
+        ul li:nth-child(4n+1) {
+            background-color: #dc7092;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>

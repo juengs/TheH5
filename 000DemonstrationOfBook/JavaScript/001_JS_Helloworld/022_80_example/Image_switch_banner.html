@@ -1,0 +1,88 @@
+<!DOCTYPE html>  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+    <title>js,css动态切换图片</title>  
+    <style type="text/css">
+        * {  
+    margin: 0px;padding: 0px;  
+}  
+  
+body {  
+    width: 632px;  
+    /*background-color: blue;*/  
+    margin: 0 auto;  
+}  
+  
+#imgsCom {  
+    background-color: yellow;  
+    /*相对定位，为了下层可以使用绝对定位时以本div的原点为原点*/  
+    position: relative;  
+}  
+  
+#ulnav{  
+    list-style-type: none;  
+     
+    position: absolute;  
+    /*使用以imgsCom为原点来绝对定位到右下角*/  
+    bottom: 0px;  
+    right: 0px;  
+}  
+#ulnav li{  
+    list-style-type: none;  
+    float: left;  
+    background-color: black;  
+    color: white;  
+    margin-right: 5px;  
+    width: 20px;  
+    height: 20px;  
+    line-height: 20px;  
+    text-align: center;  
+    cursor: pointer;  
+}
+    </style>
+    <link href="css/index.css" rel="stylesheet" />  
+    <script type="text/javascript">  
+  
+        function gel(id) {  
+            return document.getElementById(id);  
+        }  
+  
+        function  clearLiBg() {  
+            var mylis = gel("ulnav").childNodes;  
+            for (var i = 0; i < mylis.length; i++) {  
+                if (mylis[i].nodeType == 1) {  
+                    mylis[i].style.backgroundColor = "black";  
+                }  
+            }  
+        }  
+        
+        window.onload = function() {  
+            //给三个li都指定一个属性  
+            var lis = gel("ulnav").childNodes;  
+            for (var i = 0; i < lis.length; i++) {  
+                if (lis[i].nodeType == 1) {  
+                    lis[i].onclick = function () {  
+                        //更换图片  
+                        gel("myimg").setAttribute("src", "images/" + this.innerHTML + ".jpg");  
+                        //所有LI颜色复原  
+                        clearLiBg();  
+                        //更换LI背景标签颜色  
+                        this.style.backgroundColor = "silver";  
+                    };  
+                }  
+            }  
+        };  
+    </script>  
+</head>  
+<body>  
+    <div id="imgsCom" style="width: 632px; height: 412px;">  
+        <img src="images/1.jpg" id="myimg" style="width: 632px; height: 412px; " />  
+        <ul id="ulnav">  
+            <li>1</li>  
+            <li>2</li>  
+            <li>3</li>  
+        </ul>  
+    </div>  
+</body>  
+</html>

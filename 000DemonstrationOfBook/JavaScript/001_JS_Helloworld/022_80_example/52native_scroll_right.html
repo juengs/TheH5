@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+ <title></title>
+ <script type="text/javascript">
+     var mainfo='>>>的水果蛋糕蛋糕和>>>';
+   mainfo+='>>>qwertyuiop维地方电饭锅才>>>';
+     var anch=50;//字符串长度
+   function xunhuan(){
+   document.forms[0].uname.value=mainfo.substring(mainfo.length-anch,mainfo.length);
+   mainfo=mainfo.substring(mainfo.length-1,mainfo.length)+mainfo;
+   mainfo=mainfo.substring(0,mainfo.length-1);
+   setTimeout('xunhuan()',200)//控制循环时间
+   }
+</script>
+</head>
+ 
+<body onload='xunhuan();'>
+    <form>
+      <input name='uname' id='idd' type='text'size='50'>
+  </form>
+</body>
+</html>

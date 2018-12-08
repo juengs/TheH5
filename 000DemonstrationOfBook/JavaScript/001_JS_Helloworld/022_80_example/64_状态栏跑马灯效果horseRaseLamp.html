@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>间隔状态栏跑马灯</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		<!--
+		function scrollit(seed) {
+		var m1 = "HI：你 好! ";
+		var m2 = "欢迎访问脚本之家网站";
+		var m3 = "请 多 提 意 见，谢 谢!";
+		var m4 = "E-MAIL:";
+		var m5 = "/";
+		var msg=m1+m2+m3+m4+m5;
+		var out = " ";
+		var c = 1;
+		if (seed > 100) {
+		seed--;
+		cmd="scrollit("+seed+")";
+		timerTwo=window.setTimeout(cmd,100);
+		}
+		else if (seed <= 100 && seed > 0) {
+		for (c=0 ; c < seed ; c++) {
+		out+=" ";
+		}
+		out+=msg;
+		seed--;
+		window.status=out;
+		cmd="scrollit("+seed+")";
+		timerTwo=window.setTimeout(cmd,100);
+		}
+		else if (seed <= 0) {
+		if (-seed < msg.length) {
+		out+=msg.substring(-seed,msg.length);
+		seed--;
+		window.status=out;
+		cmd="scrollit("+seed+")";
+		timerTwo=window.setTimeout(cmd,100);
+		}
+		else {
+		window.status=" ";
+		timerTwo=window.setTimeout("scrollit(100)",75);
+		}
+		}
+		}
+		//-->
+		// 不支持就不执行
+	</script>
+</head>
+<body bgcolor="#fef4d9" onload="scrollit(100)">
+
+</body>
+</html>

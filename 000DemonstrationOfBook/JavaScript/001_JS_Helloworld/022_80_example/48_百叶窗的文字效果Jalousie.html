@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原生js实现百叶窗效果及原理介绍</title>
+	<!-- .rar -->
+	<style type="text/css">
+		/* 用于注释 */
+		/* 01. 改变它的top值从而获得变化(absolute绝对位置) */
+		/* 02. -top位置高度一半 to top位置高度一半0 */
+		/* 03. ul li div{} */
+
+/* JS分析:
+1、要开多个定时器来达到效果
+2、执行相反方向
+3、执行多组运动
+4、累加产生错落感
+5、产生时间间隔的动画 */
+
+	</style>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-align: center;
+			font-family: '微软雅黑';
+		}
+		body {
+			background: #eee;
+		}
+		#ul1,#ul2{ 
+			width:500px; 
+			height:auto; 
+			margin: 30px auto 0;
+			padding: 10px;
+			box-shadow: 0 0 40px #666;
+			float: left;
+		}
+		li{ 
+			width:100%; 
+			height:30px; 
+			overflow:hidden; 
+			position:relative; 
+			margin-bottom: 2px;
+			line-height:30px;}
+		li div{ 
+			position:absolute; 
+			top:-30px;
+			width: 100%;
+		}
+		li div p { 
+			height:30px;
+			background: #ffffe0;
+			color: #000;
+		}
+		li p.p-2 {
+			background: #4682b4;
+			color: #fff;
+		}		
+	</style>
+	<script>
+		window.onload = function(){
+			var oUl = document.getElementById('ul1');
+			var oUl2 = document.getElementById('ul2');
+			
+			toShow(oUl);
+			
+			setTimeout(function(){
+				toShow(oUl2);
+			},4000);	
+			function toShow(obj){
+				var aDiv = obj.getElementsByTagName('div');
+				var iNow = 0;
+				var timer = null;
+				var bBtn = true;
+
+				setInterval(function(){			
+					toChange();	
+				},2000);
+				function toChange(){
+					timer = setInterval(function(){
+						if(iNow==aDiv.length){
+							clearInterval(timer);
+							iNow = 0;
+							bBtn = !bBtn;
+						}
+						else if(bBtn){
+							startMove(aDiv[iNow],{top:0},function(){
+								var p = document.getElementsByClassName('p-2');
+								for(var i=0; i<p.length;i++){
+									p[i].style.background = 'red';
+								}
+								
+							});
+							iNow++;
+						}
+						else{
+							startMove(aDiv[iNow],{top:-30});
+							iNow++;
+						}					
+					},100);					
+				}				
+			}			
+		};
+		function startMove(obj,json,endFn){ 
+	        clearInterval(obj.timer);        
+	        obj.timer = setInterval(function(){           
+	            var bBtn = true;           
+	            for(var attr in json){              
+	                var iCur = 0;         
+	                    iCur = parseInt(getStyle(obj,attr)) || 0;
+	                var iSpeed = (json[attr] - iCur)/8;
+	            		iSpeed = iSpeed >0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+
+	                if(iCur!=json[attr]){
+	                    bBtn = false;
+	                }
+	                obj.style[attr] = iCur + iSpeed + 'px';             
+	            }          
+	            if(bBtn){
+	                clearInterval(obj.timer);
+	                if(endFn){
+	                    endFn.call(obj);
+	                }
+	            }
+	        },30);   
+	    }    
+	    function getStyle(obj,attr){
+	        if(obj.currentStyle){
+	            return obj.currentStyle[attr];
+	        }
+	        else{
+	            return getComputedStyle(obj,false)[attr];
+	        }
+	    }
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li>
+	    	<div>
+	        	<p>有的女人就像Windows 虽然很优秀，但是安全隐患太大。</p>
+				<p class="p-2">有的女人就像UNIX 她条件很好，然而不是谁都能玩的起。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像C# 长的很漂亮，但是家务活不行。</p>
+				<p class="p-2">有的女人就像C++,她会默默的为你做很多的事情。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像JAVA,只需一点付出她就会为你到处服务。</p>
+				<p class="p-2">有的女人就像javaScript，虽然对她处处小心但最终还是没有结果。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像 SQL，她会为你的发展带来莫大的帮助。</p>
+				<p class="p-2">有的女人就像汇编 虽然很麻烦，但是有的时候还得求它</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>女朋友就是私有变量，只有我这个类才能调用。</p>
+				<p class="p-2">情人就是指针用的时候一定要注意，要不然就带来巨大的灾难</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像Windows 虽然很优秀，但是安全隐患太大。</p>
+				<p class="p-2">有的女人就像UNIX 她条件很好，然而不是谁都能玩的起。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像C# 长的很漂亮，但是家务活不行。</p>
+				<p class="p-2">有的女人就像C++,她会默默的为你做很多的事情。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像JAVA,只需一点付出她就会为你到处服务。</p>
+				<p class="p-2">有的女人就像javaScript，虽然对她处处小心但最终还是没有结果。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像 SQL，她会为你的发展带来莫大的帮助。</p>
+				<p class="p-2">有的女人就像汇编 虽然很麻烦，但是有的时候还得求它</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>女朋友就是私有变量，只有我这个类才能调用。</p>
+				<p class="p-2">情人就是指针用的时候一定要注意，要不然就带来巨大的灾难</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像Windows 虽然很优秀，但是安全隐患太大。</p>
+				<p class="p-2">有的女人就像UNIX 她条件很好，然而不是谁都能玩的起。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像C# 长的很漂亮，但是家务活不行。</p>
+				<p class="p-2">有的女人就像C++,她会默默的为你做很多的事情。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像JAVA,只需一点付出她就会为你到处服务。</p>
+				<p class="p-2">有的女人就像javaScript，虽然对她处处小心但最终还是没有结果。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像 SQL，她会为你的发展带来莫大的帮助。</p>
+				<p class="p-2">有的女人就像汇编 虽然很麻烦，但是有的时候还得求它</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>女朋友就是私有变量，只有我这个类才能调用。</p>
+				<p class="p-2">情人就是指针用的时候一定要注意，要不然就带来巨大的灾难</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像Windows 虽然很优秀，但是安全隐患太大。</p>
+				<p class="p-2">有的女人就像UNIX 她条件很好，然而不是谁都能玩的起。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像C# 长的很漂亮，但是家务活不行。</p>
+				<p class="p-2">有的女人就像C++,她会默默的为你做很多的事情。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像JAVA,只需一点付出她就会为你到处服务。</p>
+				<p class="p-2">有的女人就像javaScript，虽然对她处处小心但最终还是没有结果。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像 SQL，她会为你的发展带来莫大的帮助。</p>
+				<p class="p-2">有的女人就像汇编 虽然很麻烦，但是有的时候还得求它</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>女朋友就是私有变量，只有我这个类才能调用。</p>
+				<p class="p-2">情人就是指针用的时候一定要注意，要不然就带来巨大的灾难</p>
+	        </div>
+	    </li>
+	</ul>
+	<ul id="ul2">
+		<li>
+	    	<div>
+	        	<p>有的女人就像Windows 虽然很优秀，但是安全隐患太大。</p>
+				<p class="p-2">有的女人就像UNIX 她条件很好，然而不是谁都能玩的起。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像C# 长的很漂亮，但是家务活不行。</p>
+				<p class="p-2">有的女人就像C++,她会默默的为你做很多的事情。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像JAVA,只需一点付出她就会为你到处服务。</p>
+				<p class="p-2">有的女人就像javaScript，虽然对她处处小心但最终还是没有结果。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像 SQL，她会为你的发展带来莫大的帮助。</p>
+				<p class="p-2">有的女人就像汇编 虽然很麻烦，但是有的时候还得求它</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>女朋友就是私有变量，只有我这个类才能调用。</p>
+				<p class="p-2">情人就是指针用的时候一定要注意，要不然就带来巨大的灾难</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像Windows 虽然很优秀，但是安全隐患太大。</p>
+				<p class="p-2">有的女人就像UNIX 她条件很好，然而不是谁都能玩的起。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像C# 长的很漂亮，但是家务活不行。</p>
+				<p class="p-2">有的女人就像C++,她会默默的为你做很多的事情。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像JAVA,只需一点付出她就会为你到处服务。</p>
+				<p class="p-2">有的女人就像javaScript，虽然对她处处小心但最终还是没有结果。</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>有的女人就像 SQL，她会为你的发展带来莫大的帮助。</p>
+				<p class="p-2">有的女人就像汇编 虽然很麻烦，但是有的时候还得求它</p>
+	        </div>
+	    </li>
+	    <li>
+	    	<div>
+	        	<p>女朋友就是私有变量，只有我这个类才能调用。</p>
+				<p class="p-2">情人就是指针用的时候一定要注意，要不然就带来巨大的灾难</p>
+	        </div>
+	    </li>
+	</ul>
+</body>
+</html>

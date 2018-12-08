@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>文字对象的length</title>
+	<script type="text/javascript">
+		function show_length(){
+			var texts=document.form1.strings.value.length;
+			document.form2.lenghts.value=texts;
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<form name="form1">
+			请输入内容:<br>
+			<textarea name="strings" rows="10" cols="30"></textarea>
+		</form>
+		<form name="form2">
+			<input type="button" value="显示字符串长度" name="" onclick="show_length()">
+			<input type="text" name="lenghts" size="20">
+		</form>
+	</center>
+
+</body>
+</html>

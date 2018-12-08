@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<title>左右无间断滚动效果</title>
+<style type="text/css" media="all">
+.d1 {margin:10px auto;width:200px;height:auto;overflow:hidden;white-space:nowrap;}
+.d2 {margin:0px auto;background-color:#FF9933;}
+.div2 {width:auto;height:auto;font-size:12px;float:left;overflow:hidden;}
+ul{margin:0px;padding:9px;list-style:none;line-height:19px;font-size:12px;}
+a:link,a:visited{color:#3F78CF;text-decoration:none;}
+a:hover{color:#FF00CC;text-decoration:underline;}
+</style>
+<script language="javascript" type="text/javascript">
+    var s,s2,s3,s4,timer;
+    function init(){
+        s=getid("div1");
+        s2=getid("div2");
+        s3=getid("div3");
+        s4=getid("scroll");
+        s4.style.width=(s2.offsetWidth*2+100)+"px";
+        s3.innerHTML=s2.innerHTML;
+        timer=setInterval(mar,30)
+    }
+    function mar(){
+        if(s2.offsetWidth<=s.scrollLeft){
+            s.scrollLeft-=s2.offsetWidth;
+        }else{s.scrollLeft++;}
+    }
+    function getid(id){
+        return document.getElementById(id);
+    }
+    window.onload=init;
+</script>
+</head>
+<body>
+<div class="d1" id="div1" onmouseover="clearInterval(timer)" onmouseout="timer=setInterval(mar,30)">
+   <div class="scroll" id="scroll">
+     <div class="div2" id="div2">
+        <ul>
+          <li>蓝瘦香菇蓝瘦香菇蓝瘦香菇蓝瘦香菇蓝瘦香菇蓝瘦香菇</li>
+        </ul>
+  </div>
+  <div id="div3" class="div2"></div>
+ </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>FIXME淡入淡出效果 JS ,(h5无效果)</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		finction to()
+		{
+			if(text.filters.blendTrans.status != 2){
+				text.filters.blendTrans.apply();
+				text.filters.blendTrans.play();
+			}
+		}
+		funtion ti()
+		{
+			if(text.filters.blendTrans.status != 2){
+				text.filters.blendTrans.apply();
+				text.style.visibility="visible";
+				text.filters.blendTrans.play();
+			}
+		}
+		funtion po()
+		{
+			if(pic.filters.blendTrans.status != 2){
+				pic.filters.blendTrans.apply();
+				pic.style.visibility=hidden;
+				pic.filters.blendTrans.play();
+			}
+		}
+		funtion pi()
+		{
+			if(pic.filters.blendTrans.status != 2){
+				pic.filters.blendTrans.apply();
+				pic.style.visibility="visible";
+				pic.filters.blendTrans.play();
+			}
+		}
+	</script>
+</head>
+<body>
+	<table>
+		<!-- row 行 -->
+		<tr>
+			<td>
+				<!-- 标识 text 对象 -->
+				<div id="text" style="width: 200px;height: 110px;
+				background-color: lightyellow;color: red;filter: blendtrans(duration=1);">
+					注意看文字的渐隐效果
+				</div>
+			</td>
+			<td></td>
+			<td>
+				<!-- 标识 pic 对象 -->
+				<img id="pic" src="images/1.jpg" style="filter: brightness(); height: 110px">
+			</td>
+		</tr>
+		<!-- row 行 -->
+		<tr>
+			<td>
+				<button onclick="to()">隐藏文字</button>
+				<button onclick="ti()">显示文字</button>
+			</td>
+			<!-- column 列 -->
+			<td></td>
+			<td>
+				<button onclick="po()">隐藏图片</button>
+				<button onclick="pi()">显示图片</button>
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

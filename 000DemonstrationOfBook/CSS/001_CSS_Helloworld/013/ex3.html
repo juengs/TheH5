@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>class属性:定义样式的使用(p.a1只有p的class=a1时候,属性有用)</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	/* 只有p的class属性有用 */
+		p.a1{font-family: 楷体;color: red;}
+	/* 星号匹配所有使用 */
+		*.a2{font-family: 黑体;color: green;}
+	</style>
+</head>
+<body>
+	<font>
+		<p class="a1">红色楷体</p>
+		<h1 class="a1">default浏览器默认字体样式</h1>
+		<h1 class="a2">蓝色黑体</h1>
+	</font>
+</body>
+</html>

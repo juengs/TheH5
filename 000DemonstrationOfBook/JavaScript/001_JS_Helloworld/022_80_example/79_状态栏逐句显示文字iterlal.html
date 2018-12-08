@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<title>状态栏 逐字显示一句话 DONE</title>
+<!-- mac 没有浏览器状态栏！ -->
+		<script type="text/javascript">
+		 var i=0;
+		 var iIntervalID=0;
+		 var info="";
+		 var arr=["临","沂","大","学","欢","迎","您","!"];
+		 function  interval(){
+		        if(i<arr.length)
+				{
+				 info=info+arr[i];
+				 window.status=info;
+				 i++;
+		        }else
+		        {
+				  i=0;
+				  info="";
+				}		
+		  }
+		function showInfo()
+		{
+		    iIntervalID = window.setInterval("interval()",2000);
+		}
+		function cancelInfo(){
+		   window.clearInterval(iIntervalID);
+		}
+		</script>
+</head>
+<body>
+<input type="button" value="逐字显示一句话" onclick="showInfo()">
+<br/>
+<br/>
+<input type="button" value="取消逐字显示效果" onclick="cancelInfo()">
+</body>
+</html>

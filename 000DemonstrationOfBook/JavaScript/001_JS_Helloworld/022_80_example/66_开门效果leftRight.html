@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hold the door. open the door. 开门效果DONE</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.indexTop{
+		    width: 60em;
+		    height: 40em;
+		    text-align: center;
+		    margin: 0 auto;
+		    position: relative;
+		    background-color: darkslategrey;
+		}
+		.divleft{
+		    width:30em;
+		    height: 40em;
+		    background: url("./images/02.png") no-repeat;
+		    float: left;
+		    -webkit-background-size: 100% 100%;
+		    background-size: 100% 100%;
+		}
+		.divright{
+		    width:30em;
+		    height: 40em;
+		    background: url("./images/03.png") no-repeat;
+		    float: right;
+		    -webkit-background-size: 100% 100%;
+		    background-size: 100% 100%;
+		}
+		.inputLogin{
+		    background: blue;
+		    width: 20em;
+		    height: 5em;
+		    position: absolute;
+		    top: 40em;
+		    display: block;
+		    margin-left: 35%;
+		}
+	</style>
+	<script src="./js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<div class="indexTop">
+	  <div class=" divleft" id="left"></div>
+	  <div class=" divright" id="right"></div>
+	  <input type="button" value="点击登录" class="inputLogin">
+	</div>
+	<script type="text/javascript">
+		var i=0;
+		var timeid ;
+		$("input[type=button]").click(function () {
+		    timeid = setInterval(function(){
+		       i=i+0.1;
+		        css(i)
+		    },1)
+
+		})
+		function css(i){
+		    if(i<72){
+		            $("#left").css("transform","rotateY("+i+"deg)");
+		        $("#left").css("transform-origin","left");
+		        $("#right").css("transform","rotateY(-"+i+"deg)");
+		        $("#right").css("transform-origin","right");
+		    }else{
+		        clearInterval(timeid);
+		    }
+
+		}
+	</script>
+
+</body>
+</html>

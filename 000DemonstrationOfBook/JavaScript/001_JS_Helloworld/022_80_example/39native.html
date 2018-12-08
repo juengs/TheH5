@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>纯js实现隔行变色效果</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<table>
+		<th></th>
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+<script type="text/javascript">
+ function createTable(){
+  //创建表格
+  var table = document.createElement("table");
+   
+  //设置表格的行数
+  for(var i=0;i<4;i++){
+   var tr = document.createElement("tr");
+   //设置表格的列数
+   for( var j=0;j<5;j++){
+    var td = document.createElement("td");
+    tr.appendChild(td);
+    //添加文本
+    var txt = document.createTextNode("wkk");
+    td.appendChild(txt);
+   }
+    
+   //判断颜色的变换
+   if(i%2==0){
+    //添加属性（第一种）
+    tr.style.backgroundColor = "#f0f";
+   } else {
+    tr.style.backgroundColor = "#ff0";
+   }
+    
+   table.appendChild(tr);
+  }
+   
+  //添加属性（第二种）
+  table.setAttribute("border","1px");
+  //table.style.border = "solid 1px red";
+  table.setAttribute("width","200px");
+  table.setAttribute("height","100px");
+   
+   
+  //添加到body中
+  document.body.appendChild(table);
+   
+   
+ }//create table over
+  
+ createTable();
+</script>
+</body>
+</html>

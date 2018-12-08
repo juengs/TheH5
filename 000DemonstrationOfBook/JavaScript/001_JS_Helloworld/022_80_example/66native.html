@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>简单原生js实现开关门效果DONE</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		div{float:left; height: 100px; line-height: 100px; }
+        #d1,#d3{ background-color: #ccff00; }
+        #d2{ cursor: pointer; background-color: #ffcc00; }
+        #d1{
+            width:64px;
+            overflow:hidden;
+            transition:all .5s linear;
+        }
+	</style>
+</head>
+<body>
+	<div id="d1">树形列表</div>
+    <div id="d2">&lt;&lt;CLICK ME!</div>
+    <div id="d3">内容的主体</div>
+	<script type="text/javascript">
+		var d2=document.getElementById("d2");
+    d2.onclick=function(){
+        //当前元素的上一个兄弟元素d1
+        var d1=this.previousElementSibling;
+        //判断当前为<<时，d1为隐藏
+        if(this.innerHTML=="&lt;&lt;"){
+            d1.style.display="none";
+            this.innerHTML="&gt;&gt;";
+        }else{
+            d1.style.display="block";
+  //d1.style.width="64px";直接修改宽度也可以显示隐藏
+            this.innerHTML="&lt;&lt;";
+        }
+    }
+	</script>
+
+</body>
+</html>

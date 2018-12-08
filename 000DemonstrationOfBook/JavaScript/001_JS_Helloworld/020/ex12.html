@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>cookie的使用 曲奇饼干 session</title>
+	<script type="text/javascript">
+		// 加载窗体
+		function openw(){
+			window.open("page/01.htm","","width=300, height=300");
+		}
+		// 设置cookie
+		function set_cookie(name){
+			var search = name + "=";
+			var returnvalue = "";
+			if (document.cookie.lenght > 0) {
+				offset = document.cookie.indexOf(search);
+				// -1负false 正true  !取反
+				if (offset != -1) {
+					offset += search.lenght; // Int
+					end = document.cookie.indexOf(";",offset); //
+					if (end == -1) {
+						end = document.cookie.lenght;
+						returnvalue =unescape(document.cookie.substring(offset,end));
+					}
+				}
+			}
+			return returnvalue;
+		}
+		// 加载窗体
+		function loadw(){
+			if (set_cookie('popped') == '') {
+				openw();
+				document.cookie="popped=yes"
+			}
+		}
+	</script>
+</head>
+<body onload="loadw()">
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body  bgcolor="#000000">  
+<div id="text"  style="font-size:20px;">你好，这是一段改变文字大小和颜色的javascript代码</div>  
+<script type="text/javascript">  
+var size = 20;  
+var falg = 1;  
+function colortext()  
+{  
+    //获取文字的大小  
+    document.getElementById("text").style.color = getcolor();  
+    document.getElementById("text").style.fontSize = getSize();  
+    }  
+//设置文字颜色      
+function getcolor()  
+{  
+    var mycolor = "#";  
+    var color ="123456789abcdef";  
+    var colorcode = color.split("");  
+    for(var i=0;i<6;i++)  
+    {  
+        mycolor+=colorcode[Math.floor(15*Math.random())];         
+    }  
+    return mycolor;  
+}  
+//返回字体大小  
+function getSize()  
+{  
+    if(falg == 1)  
+    {  
+        size = size+1;  
+        if(size == 60)  
+            falg = 0;  
+        return size;  
+    }  
+    if(falg == 0)  
+    {  
+        size = size-1;  
+        if(size == 20)  
+            falg = 1;  
+        return size;  
+    }  
+}  
+setInterval("colortext()",200);  
+</script>  
+</body>  
+</html>

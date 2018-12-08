@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>blur()滤镜</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<table>
+		<tr>
+			<td>origin原始图片orange</td>
+			<td>显示原来的图片,以270度的方向模糊</td>
+		</tr>
+		<tr>
+			<td><img src="images/1.jpg"></td>
+			<!--  体力/实力/力量 -->
+			<td><img src="images/1.jpg" style="filter: blur(strenght=20)"></td>
+		</tr>
+		<tr>
+			<td>原始图片</td>
+			<td>不显示原来的图片,以225度的方向模糊</td>
+		</tr>
+		<tr>
+			<td><img src="images/1.jpg"></td>
+			<td>
+				<img src="images/1.jpg" style="filter: blur(add=0,direction=225,strenght=15)">
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+	<meta charset="utf-8">
+	<title>03</title>
+
+	<style type="text/css">
+		/*CSS 伪类 (Pseudo-classes)*/
+		/* 锚伪类 = 伪类 */
+		a:link {color: #FF0000}		/* 未访问的链接 */
+		a:visited {color: #00FF00}	/* 已访问的链接 */
+		a:hover {color: #FF00FF}	/* 鼠标移动到链接上 */
+		a:active {color: #0000FF}	/* 选定的链接 */
+		/* 伪类可以与 CSS 类配合使用 */
+		a.red : visited {color: #FF0000}
+
+		/* selector:first-child selecotr伪类 */
+		p:first-child {font-weight: bold;} /* 粗体黑体 */
+		li:first-child {text-transform:uppercase;} /* 大写 */
+	</style>
+
+</head>
+<body>
+	<!-- alter  -->
+	<a class="red" href="http://www.w3school.com.cn" title="title TIPS">W3School</a>
+	<img src="images/godFish.jpg" class="wujiang_pic_size" id="caocao_pic" onClick="change_pic()" alt="Tips" title="TITLE">
+
+	<div>
+		<p>These are the necessary steps:</p>
+		<ul>
+			<li>Intert Key</li>
+			<li>Turn key <strong>clockwise</strong></li>
+			<li>Push accelerator</li>
+		</ul>
+		<p>Do <em>not</em> push the brake at the same time as the accelerator.</p>
+	</div>
+
+	<script type="text/javascript">
+		function change_pic(){
+			var imgObj = document.getElementById("caocao_pic");
+			var Flag=(imgObj.getAttribute("src",2)=="images/godFish.jpg")
+			// true and pick first one 1.jpg
+			imgObj.src=Flag?"images/1.jpg":"images/godFish.jpg";
+}
+	</script>
+</body>
+</html>

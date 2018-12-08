@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<title>JS溶解形式的文字切换特效</title>
+	<meta charset="utf-8">
+	<script type="text/javascript"> 
+	messages = new Array() 
+	messages[0] = "脚本之家,都知道吧?" 
+	messages[1] = "我们更关注开源,欢迎发布开源源代码" 
+	messages[2] = "提供给你一个有质量的源代码资料站" 
+	mescolor = new Array() 
+	mescolor[0] = "000000" 
+	mescolor[1] = "FF0000" 
+	mescolor[2] = "008800" 
+	messize = new Array() 
+	messize[0] = "30pt" 
+	messize[1] = "30pt" 
+	messize[2] = "30pt" 
+	var i_messages = 0 
+	var timer 
+	function dotransition() { 
+	if (document.all) { 
+	content.filters[0].apply() 
+	content.innerHTML = "<span style='color:"+mescolor[i_messages]+";font-size:"+messize[i_messages]+";filter: revealTrans(Transition=12, Duration=3)'>"+messages[i_messages]+"</span>" 
+	content.filters[0].play() 
+	if (i_messages >= messages.length-1) { 
+	i_messages = 0 
+	} 
+	else { 
+	i_messages++ 
+	} 
+	} 
+
+	if (document.layers) { 
+	document.content.document.write("<span style='color:"+mescolor[i_messages]+"'>"+messages[i_messages]+"</span>") 
+	if (i_messages >= messages.length-1) { 
+	i_messages = 0 
+	} 
+	else { 
+	i_messages++ 
+	} 
+	} 
+	timer = setTimeout("dotransition()",4999) 
+	} 
+
+	</script>
+
+</head> 
+
+<body onload="dotransition()"> 
+	<div>
+		Default: position size color flow .
+	</div>
+	<div id="content" style="filter: revealTrans(Transition=12, Duration=2); height: 2000px; left: 93px; position: absolute;text-align: center;top: 21px; width: 559px">
+		First: this is solid. (solid line, virtual line)
+	</div>
+	<div id="source" style="color: #aaaaaa; left: 94px; position: absolute; text-align: center; top:243px; width: 560px">
+		Second: solid to liquid to gas. (gaseous state)
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FIXMe:time shadow</title>
+	<meta charset="utf-8"; http-equiv="content-type">
+	<style type="text/css">
+		.time{font-size: 45pt;line-height: 45pt;color: cyan;}
+	</style>
+	<script type="text/javascript">
+		// 计时器timer counter
+		var counter;
+		function day(){
+			if(document.all){
+				timer2.style.left=timer1.position.left;
+				timer2.style.top=timer1.style.position.top+timer1.offsetHieght - 6;
+				setTime();
+			}
+		}
+		function setTime(){
+			var time=new Date();
+			hours=time.getHours();
+			minutes=time.getMinutes();
+			seconds=time.getSeconds();
+			if(hours)
+				hours="0"+hours;
+			if(minutes)
+				minutes="0"+minutes;
+			if(seconds)
+				seconds="0"+seconds;
+			timer1.innerHTML=hours+":"+minutes+":"seconds
+			timer2.innerHTML=hours+":"+minutes+":"seconds
+			counter=setTimeout('setTime',1000);
+		}
+	</script>
+</head>
+<body onload="day()">
+	<div class="time" id="timer1" style="height: 55px; left: 110px; position: absolute;top: 75px; width: 10px;">Friday,November16,2018</div>
+	<div class="time" id="timer2" style="filter:flipv() alpha(opacity: 20); font-style: italic;position: absolute;">friday,11/16/2018</div>
+</body>
+</html>

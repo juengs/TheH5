@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>动态年份下拉列表</title>
+
+	<script type="text/javascript">
+    onload = function ()
+    {
+         var year=new Date().getFullYear(); //获取当前年份
+         
+       var sel = document.getElementById ('sel');//获取select下拉列表
+       for ( var i = 2006; i < year+3; i++)//循环添加2006到当前年份加3年的每个年份依次添加到下拉列表
+       {
+           var option = document.createElement ('option');
+           option.value = i;
+           var txt = document.createTextNode (i);
+           option.appendChild (txt);
+           sel.appendChild (option);
+       }
+    }
+</script>
+
+</head>
+<body>
+	<select id="sel">
+    </select>
+
+</body>
+</html>

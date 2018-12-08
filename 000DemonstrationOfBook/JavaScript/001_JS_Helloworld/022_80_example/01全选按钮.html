@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<title>select all</title>
+
+	<style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font-size: 16px ;
+            color: #fff;
+        }
+
+        td {
+            font-size: 14px;
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+
+</head>
+<body>
+	<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="theadInp" />
+            </th>
+            <th>英雄名</th>
+            <th>国籍</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>拉克丝Java</td>
+            <td>德玛西亚</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>德莱文Script</td>
+            <td>诺克萨斯</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>蒙多Asp</td>
+            <td>祖安</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>艾希HTML</td>
+            <td>弗雷尔卓德</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>SQL</td>
+            <td>Mysql</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+	
+	<script>
+        window.onload = function () {
+        	// totally input 
+            var topInp = document.getElementById("theadInp");
+            // body label
+            var tbody = document.getElementById("tbody");
+            // single input 
+            var botInpArr = tbody.getElementsByTagName("input");
+
+    //绑定事件
+            topInp.onclick = function () {
+   //优化版（被点击的input按钮的checked属性值，直接作为下面的所有的input按钮的checked属性值）
+                for(var i=0;i<botInpArr.length;i++){
+                    botInpArr[i].checked = this.checked;
+                }
+            }
+            for(var i=0;i<botInpArr.length;i++){
+                botInpArr[i].onclick = function () {
+                    //定义一个标识是true还是false的变量
+                    //默认它为true
+                    var bool = true;
+                    //检测每一个input的checked属性值。
+                    for(var j=0;j<botInpArr.length;j++){
+                        if(botInpArr[j].checked == false){
+                            bool = false;
+                        }
+                    }
+                    topInp.checked = bool;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>

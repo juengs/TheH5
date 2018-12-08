@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>窗口边框-红色边框</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// collection [i] null, element
+		if (document.all) {
+			with(window.document.body.style){
+				borderWidth="10";
+				borderStyle="solid"; //实线
+				borderColor="red";
+			}
+		}
+	</script>
+
+	<font size="6">文字内容</font>
+	<img src="page/01.jpg" height="300">
+</body>
+</html>

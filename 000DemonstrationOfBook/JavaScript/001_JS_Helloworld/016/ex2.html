@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>显示日期</title>
+	<script type="text/javascript">
+		function showdate(){
+			var now_date = new Date();
+			var years = now_date.getYear();
+			var months = now_date.getMonth();
+			var dates = now_date.getDate();
+			var days = now_date.getDay();
+			if(now_date.getDay==0) days="星期天"
+			if(now_date.getDay==1) days="星期一"
+			if(now_date.getDay==2) days="星期二"
+			if(now_date.getDay==3) days="星期三"
+			if(now_date.getDay==4) days="星期四"
+			if(now_date.getDay==5) days="星期五"
+			if(now_date.getDay==6) days="星期六"
+			var today = " 今天是 " + years + "年" + (months+1) + "月" + dates + "日" + " "+days +" ";
+		document.clock.show.value = today;
+		// id , name, click, event,
+		}
+	</script>
+</head>
+<body onload="showdate()">
+	<center>
+		<form name="clock" onsubmit="0">
+			<input type="text" name="show" size=30 style="background-color: lightyellow; border-width: 3;">
+		</form> 
+	</center>
+
+</body>
+</html>

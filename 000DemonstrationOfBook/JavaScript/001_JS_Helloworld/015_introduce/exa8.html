@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>无parameter参函数</title>
+	<script language="javascript">
+		function counttime()
+		{
+			var a = new Date();
+			var hour=a.getHours();
+			var minute=a.getMinutes();
+			var second=a.getSeconds();
+			var time=hour+":"+minute+":"+second;
+			alert("现在的时间是:"+time);
+			//print(time);
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<input type="button" name="" value="显示时间" onclick=counttime()>
+	</center>
+	
+</body>
+</html>

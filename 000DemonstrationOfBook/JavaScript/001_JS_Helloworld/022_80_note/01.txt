@@ -1,0 +1,31 @@
+				
+************************************************************************************
+全选按钮 input select-all button
+************************************************************************************
+
+
+# Javascript
+
+#### 思路
+- 1.获取html对象 遍历ergodic literal letter
+- 2.给事件 绑定函数.
+- 3.define function 遍历input控件//
+
+```
+- 1.加载并遍历 是否选中==topInput
+- 2.点个点击情况,默认true ,选中取true,未选中取false
+```
+
+#### 知识点
+- event = function 事件与函数
+- 类document 类函数
+- 返回对象本身 return self
+- variable变量==容器. container.
+- 集合类型 collection //如果获取的元素不止一个(相同类型type or class/ID)
+
+
+```
+TagName()
+ById()
+ByClass()
+```

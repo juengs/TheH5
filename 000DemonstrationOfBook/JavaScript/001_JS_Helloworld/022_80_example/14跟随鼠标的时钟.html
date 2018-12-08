@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>鼠标跟随十字JS特效代码</title>
+</head>
+<body style="margin: 0;">
+ <div id="html"></div>
+ <script type="text/javascript">
+ // 标准通用标记语言.	SGML:(Standard Generalized Markup language).
+ // XML  :(Extensible Markup Language).
+ // xmlns:(XML Namespaces)的缩写, is 属性property.
+ // DTD  :(Document Type Definition), is 语法规则.
+ // XHTML:(Extensible HyperText Markup Language).可扩展超文本标记语言. 
+ // TR   :translate 严格strict
+ var ox = document.createElement('div');
+ var oy = document.createElement('div');
+  ox.style.width = '100%';
+  ox.style.height = '1px';
+  ox.style.backgroundColor = '#ddd';
+  ox.style.position = 'fixed';
+  ox.style.left = 0;
+  document.body.appendChild(ox);
+  oy.style.height = '100%';
+  oy.style.width = '1px';
+  oy.style.backgroundColor = '#ddd';
+  oy.style.position = 'fixed';
+  oy.style.top = 0;
+  document.body.appendChild(oy);
+ document.onmousemove = function(e){
+  var e = e || event;
+  var x = e.pageX;
+  var y = e.pageY;
+  ox.style.top = y + 'px';
+  oy.style.left = x + 'px';
+  document.getElementById('html'). innerHTML = 'x : ' + x + '<br/>y : ' + y;
+ };
+ </script>
+<p>更多代码请访问：<a href="http://www.lanrentuku.com/js/" target="_blank">懒人图库</a></p>
+</body>
+</html>

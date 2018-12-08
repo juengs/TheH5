@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+	<title>js实现滚动网页的同时背景渐变</title>
+	<meta charset="utf-8">
+</head>
+<body style="height:5000px;">
+    <script type="text/javascript" src="http://wow.techbrood.com/libs/jquery/jquery-2.1.1.min.js"></script>
+    <script src="http://wow.techbrood.com/libs/jquery/jquery-1.11.1.min.js"></script>
+    
+    <script>
+        var r=255,g=0,b=0,a=0;
+        var la=4,lr=0,lg=0,lb=255;
+        var speed=10;
+        document.body.style.background = "linear-gradient(to bottom right, rgb("+lr+","+lg+","+lb+"), rgb("+r+","+g+","+b+") ) fixed  ";
+        document.onscroll = (function(){
+            if(a==0){
+                g=g+speed;
+                if(g>=255)a=1;
+            }
+            if(la==0){
+                lg=lg+speed;
+                if(lg>=255)la=1;
+            }
+            if(a==1){
+                r=r-speed;
+                if(r<=0)a=2;
+            }
+            if(la==1){
+                lr=lr-speed;
+                if(lr<=0)la=2;
+            }
+            if(a==2){
+                b=b+speed;
+                if(b>=255)a=3;
+            }
+            if(la==2){
+                lb=lb+speed;
+                if(lb>=255)la=3;
+            }
+            if(a==3){
+                g=g-speed;
+                if(g<=0)a=4;
+            }
+            if(la==3){
+                lg=lg-speed;
+                if(lg<=0)la=4;
+            }
+            if(a==4){
+                r=r+speed;
+                if(r>=255)a=5;
+            }
+            if(la==4){
+                lr=lr+speed;
+                if(lr>=255)la=5;
+            }
+            if(a==5){
+                b=b-speed;
+                if(b<=0)a=0;
+            }
+            if(la==5){
+                lb=lb-speed;
+                if(lb<=0)la=0;
+            }
+            document.body.style.background = "linear-gradient(to bottom right, rgb("+lr+","+lg+","+lb+"), rgb("+r+","+g+","+b+") ) fixed  ";
+        });
+        // https://blog.csdn.net/everlasting_20141622/article/details/81351328
+    </script>
+</body>
+</html>

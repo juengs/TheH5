@@ -1,0 +1,1 @@
+document.write("<font color=blue> Hello, World! </font>");

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>chrome chroma用在gif中的‘透明’滤镜</title>
+	<!-- chroma 将gif图片中指定的黑色,设为透明 -->
+	<!-- "style="filter:chroma(color=blue) chroma(color=red)"" -->
+	<meta charset="utf-8">
+</head>
+<body>
+	<table>
+		<tr>
+			<td>原始图片</td>
+			<td>将'比卡丘'pikachu颜色设置为透明色</td>
+		</tr>
+		<tr>
+			<td><img src="images/1.gif"></td>
+			<!-- h5不支持 -->
+			<td><img src="images/1.gif" style="filter: chroma(color=black)"></td>
+		</tr>
+	</table>
+</body>
+</html>

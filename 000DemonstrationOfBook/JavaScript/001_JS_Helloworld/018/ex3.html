@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>闪烁的图片</title>
+	<script type="text/javascript">
+		function blink(){
+			pic.style.visibility = (pic.style.visibility == "hidden") ? "visible" : "hidden";
+			setTimeout("blink()", 500);
+		}
+	</script>
+</head>
+<body onload="blink()">
+	<div id="pic">
+		<img src="./images/02.gif" border="0" width="180">
+
+	</div>
+
+</body>
+</html>

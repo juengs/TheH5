@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>实现判断今天是星期几JavaScript(DONE intellij-idea)</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<button onclick="press()">今天星期几？</button>
+<p id="today"></p>
+<script>
+	function press(){
+		var x;
+	var d = new Date().getDay();//获取今天的日期
+	// print(d); //打印
+	// document.write(d); // 值为4
+	switch(d){
+		case 0:
+		 x="今天是星期日";
+		 break;
+		 case 1:
+		 x="今天是星期1";
+		 break;
+		 case 2:
+		 x="今天是星期2";
+		 break;
+		 case 3:
+		 x="今天是星期3";
+		 break;
+		 case 4:
+		 x="今天是星期4";
+		 break;
+		 case 5:
+		 x="今天是星期5";
+		 break;
+		 case 6:
+		 x="今天是星期6";
+		 break;
+	}
+	// 最后，用innerHTML方法，将结果显示出来 
+	document.getElementById("today").innerHTML=x;
+	}
+</script>
+</body>
+</html>

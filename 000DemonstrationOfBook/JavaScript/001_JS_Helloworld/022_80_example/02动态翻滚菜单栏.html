@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ch">
+<head>
+  <meta http-equiv="content-Type" content="text/html" charset="utf-8">
+  <title>动态翻滚的导航条</title>
+
+  <style type="text/css">
+    .clear:after{content:"."; display:block; height:0; clear:both; visibility:hidden}.clear{display:inline-block}.clear{display:block}
+div#nav{height:32px; background:url(images/YL29.jpg) repeat-x}
+div#nav ul{
+    width:705px;
+    list-style:none;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: 0px;
+}
+div#nav ul li{
+    float:left;
+    height:32px;
+    overflow:hidden;
+    background-image: url(images/YL30.jpg);
+    background-repeat: repeat-y;
+    background-position: right 0;
+    padding-top: 0;
+    padding-right: 1px;
+    padding-bottom: 0;
+    padding-left: 0px;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 32px;
+    font-weight: bold;
+}
+div#nav ul li a{
+    float:left;
+    height:100%;
+    width: 77px;
+    background:url(images/YL28.jpg) repeat-x;
+    color:#fff;
+    text-decoration:none;
+    padding-top: 0;
+    padding-right: 5px;
+    padding-bottom: 0;
+    padding-left: 5px;
+    text-align:center;
+}
+div#nav ul li a.hover{
+    clear:both;
+    background-position:0 -32px;
+    width: 77px;
+}
+div#nav ul li.on a{
+    background-position:0 -32px;
+}
+div#nav ul li.nobg{background:none}
+/* ]]> */
+  </style>
+
+</head>
+<body>
+  <div id="nav">
+    <ul class="clear">
+      <li><a href="https://www.baidu.com">脚本之家</a></li>
+      <li><a href="#">网页特效</a></li>
+      <li><a href="#">工具软件</a></li>
+      <li><a href="#">脚本下载</a></li>
+      <li><a href="#">菜单导航</a></li>
+      <li><a href="#">层和布局</a></li>
+      <li><a href="#">论坛社区</a></li>
+      <li><a href="#">广告联系</a></li>
+      <li class="nobg"></li>
+    </ul>
+  </div>
+  <!-- ./js/02.js #absolute position -->
+  <!-- <script type="text/javascript" src="js/02.js"></script> -->
+
+  <script type="text/javascript">
+    
+    /* <![CDATA[ */
+    /// 页面page对象加载器 page load
+    // window.onload=function(){}
+    // function nav() begin.
+    // 初始化配置信息 ( object = true ), 短路 花括号Curly braces中不执行
+    function nav(c, config){
+    this.config = config || {speed: 10, num: 2};
+    // 三元运算符 (获取对象object or null )
+    this.container = (typeof(c)=="object") ? c : document.getElementById(c);
+    this.lineHeight = this.container.offsetHeight;
+    this.scrollTimeId = null;
+    var _this = this; 
+      // 构建 初始化 (初始化器 默认两个_ , __)
+      this.__construct = function (){
+       var inner,el,href;
+       // 第一次赋值=的时候没有初始化.
+       // //子节点node 内容list列表 <li>
+       inner = _this.container.childNodes[0].innerHTML;
+       href = _this.container.childNodes[0].href;
+       el = document.createElement("a");
+       el.innerHTML = inner;
+       el.href = href;
+       el.className = 'hover';
+       _this.container.appendChild(el);
+       _this.container.onmouseover = function (){_this.start()};
+       _this.container.onmouseout = function (){_this.end()};
+    }();
+      // execute funtion
+      // 开始 ，这是嵌套函数embed
+      this.start = function (){
+        _this.clear();
+        // two parameter
+        _this.scrollTimeId = setTimeout(function(){_this.scrollUp();}, _this.config.speed);
+      };
+
+      // 结束
+      this.end = function (){
+        _this.clear();
+    _this.scrollTimeId = setTimeout(function(){_this.scrollDown();}, _this.config.speed);
+      };
+      // 上滚
+      this.scrollUp = function (){
+        var c = _this.container; 
+        if (c.scrollTop >= _this.lineHeight) {
+          c.scrollTop = _this.lineHeight;return;}
+          c.scrollTop += _this.config.num;
+          _this.scrollTimeId = setTimeout(function(){_this.scrollUp();}, _this.config.speed);
+      };
+      // 下滚
+      this.scrollDown = function (){
+        var c = _this.container;
+        // 上滚到0
+        if (c.scrollTop <= 0) {
+          c.scrollTop = 0;return;
+        }
+        c.scrollTop -= _this.config.num;
+        _this.scrollTimeId = setTimeout(function(){_this.scrollDown();}, _this.config.speed);
+      };
+      this.clear = function (){clearTimeout(_this.scrollTimeId)};
+  }
+      // function nav() end.
+      // *************************************************
+      // function begin
+      // is a function closure = parameter , 
+      (function(){
+        var container = document.getElementById('nav');
+        var el_li = container.getElementsByTagName('li');
+        var arr = [];
+        for (var i = 0; i < el_li.length; i++) {
+          // 如果为on 继续下面的循环, 如果不是就重新开始
+          if (el_li[i].className == 'on') {
+            continue; //下一个循环
+            } else{
+            // 闭包  callback
+            arr[i] = new nav(el_li[i], {speed: 10, num: 4});  
+            }
+        }
+      })
+      // execute
+    ();
+    // *************************************************
+    /* ]]> */
+  </script>
+
+</body>
+</html>

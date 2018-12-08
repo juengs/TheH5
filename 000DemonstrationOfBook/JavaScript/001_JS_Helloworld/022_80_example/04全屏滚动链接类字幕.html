@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>scroll with Anchor link</title>
+
+	<style>
+        *{  padding: 0;  margin: 0;  }
+        html,body{  height: 100%;  }
+        .first{  height:100%;  background-color: #ccc;  position: relative;  }
+        .first .icon {  position: absolute;  bottom: 20px;  right:50px;  }
+        .first #content{  position: absolute;  bottom:0;  height:1px;  left: 0;  width: 100%;  }
+        .second{  height: 5000px;  background-color: #aaa;  }
+    </style>
+
+</head>
+<body>
+	<div class="first"><a href="#content" class="icon">向下</a> <div id="content"></div> </div>
+	<div class="second"></div>
+
+	<a href="#" title="# is self page">使用锚链接实现首页面的全屏滚动</a>
+
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="jquery.mousewheel.js"></script>
+	<script>
+    var fullScroll = {
+        ele: {
+            scrollEle: $(".first"),
+            scrollNextEle: $(".second"),
+            aEle: ".first .icon"
+        },
+        init: function () {
+            fullScroll.ele.scrollEle.mousewheel(function (event) {
+                if(event.deltaY == -1){
+                    $("body").on("click",fullScroll.ele.aEle,function () {
+                        var top = $($(this).attr("href")).offset().top;
+                        $("html,body").stop().animate({scrollTop:top},1000);
+                    });
+                    $(fullScroll.ele.aEle).click();
+                }
+            });
+            fullScroll.ele.scrollNextEle.add(fullScroll.ele.scrollEle).mousewheel(function (event) {
+                if (event.deltaY == 1) {
+                    $("html,body").stop().animate({scrollTop: 0}, 1000)
+                }
+            });
+        }
+    };
+    fullScroll.init();
+</script>
+
+</body>
+</html>

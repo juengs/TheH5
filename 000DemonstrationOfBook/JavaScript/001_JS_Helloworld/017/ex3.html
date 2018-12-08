@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>文字对象2</title>
+	<script type="text/javascript">
+		function index(str2){ //查找特定字符
+			var str1=document.form2.strings1.value;
+			var str2=document.form1.strings1.value;
+			var s=str1.indexOf(str2); //从起初位置索引,return Int
+			if (s != -1 && str2 != "") { //true,not null
+				alert("已找到该字符");
+			}else{
+				alert("没有该字符");
+			}
+		}
+		function the_sub(){ //用自定义的字符替换前面所查找的字符
+			var str1=document.form2.strings1.value;
+			var str2=document.form1.strings1.value;
+			var str3=document.form1.strings2.value;
+			var s=str1.indexOf(str2);
+			if (str2 != "" && str3 != "") //true,not null
+			{
+			if(s != -1){ //true,not null
+				var bb=str1.substring(0,s);
+				var cc=str1.substring(s+str2.length, str1.length);
+				document.form2.strings1.value = bb+str3+cc;
+			}else{
+				alert("请确认查找内容是否存在");
+			}
+			}
+			else{
+				alert("操作错误！");
+			}
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<form name="form1">
+			请输入查找内容:
+			<input type="text" name="strings1" size="20">
+			<input type="button" name="" value="查找" onclick="index()">
+			<br>
+			请输入置换内容:
+			<input type="text" name="strings2" size="20">
+			<input type="button" name="" value="置换" onclick="the_sub()"><br>
+		</form>
+		<form name="form2">
+			<textarea name="strings1" rows="5" cols="30"></textarea>
+		</form>
+	</center>
+
+</body>
+</html>

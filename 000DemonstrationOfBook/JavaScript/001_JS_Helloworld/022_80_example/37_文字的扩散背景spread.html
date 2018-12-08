@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            height: 300px;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+
+        .con {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+           .wrap1 {
+               width: 300px;
+               height: 300px;
+               margin: 10px auto;
+               overflow: hidden;
+               position: relative;
+
+           }
+          .bg {
+              position: absolute;
+              width: 0px;
+              height: 0px;
+              border-radius: 150px;
+              border: 250px solid #00c1de;
+              top: -100px;
+              left: -100px;
+              animation: identifier 5s;
+          }
+        @-webkit-keyframes identifier {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(720deg);
+            }
+        
+        }
+
+        @keyframes identifier {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(720deg);
+            }
+        
+        }
+    </style>
+</head>
+<body>
+<div class="wrap1">
+    <div class="con">
+        测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测
+    </div>
+    <div class="bg"></div>
+</div>
+<script>
+    $(".bg").animate({"width": "300px", "height": "300px", "left": "-250px", "top": "-250px"}, 5000);
+</script>
+</body>
+</html>

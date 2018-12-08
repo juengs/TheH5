@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>进入网站口令 输入对话框</title>
+	<script type="text/javascript">
+		var msg=prompt(“请输入口令:”);
+		if (msg == "关关雎鸠，在河之洲") {
+			window.open("page/06.htm","window","");
+		}else{}
+		alert("口令错误！");
+	</script>
+</head>
+<body>
+	<center>
+		<table border="3" height="100">
+			<tr>
+				<td align="center" valign="middle">
+					首次登陆请点击这里
+					<form>
+						<input type="button" value="请输入口令" onclick="inputdlg()">
+					</form>
+				</td>
+			</tr>
+		</table>
+	</center>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>窗口焦点</title>
+	<script type="text/javascript">
+		function wopen(){
+			window.open("page/05.htm","","width='300', height='300', scrollbars");
+		}
+	</script>
+</head>
+<!-- 模糊 聚焦清晰 -->
+<body onblur="setTimeout('window.focus()',1000)" onload="wopen()">
+	
+
+</body>
+</html>

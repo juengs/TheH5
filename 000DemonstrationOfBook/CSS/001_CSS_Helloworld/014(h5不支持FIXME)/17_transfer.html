@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FIXME文字、图片间的转换(blend-transfer)</title>
+	<meta charset="utf-8">
+	<script>
+		function tc()
+		{
+			if(textchange.filters.blendTrans.status != 2)
+			{
+				// 混合 转换 状态 应用-申请
+				textchange.filters.blendTrans.status.apply();
+				//设置最终区域所显示的文字 
+				textchange.innerText="结束的文字内容"; //里面内部的
+				textchange.filters.blendTrans.play();
+			}
+		}
+		function pc()
+		{
+			fi(picchange.filters.blendTrans.status != 2)
+			{
+				picchange.filters.blendTrans.apply();
+				picchange.src="images/2.jpg";//设置最终区域所显示的图片
+				picchange.filters.blendTrans.play();
+			}
+		}
+	</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				<div id="textchange"
+				style="width: 200px;height: 110px;background-color: lightyellow;color: blue;filter: blendtrans(duration=2);">
+					开始文字内容
+				</div>
+			</td>
+			<td>
+				<img id="picchange" src="images/2.jpg"
+				style="filter: blendtrans(duration=2);height: 110px;">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="tc()">转换文字</button>
+			</td>
+			<td>
+				<button onclick="pc()">转换图片</button>
+			</td>
+		</tr>
+	</table>
+	<p>如果要再次执行转换,单机工具栏上的刷新按钮即可</p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8">
+        <title>文字移动</title>
+        <script type="text/javascript">
+        
+                //初始化，给要移动的元素一个初始值，可理解为移动的起点
+         function prepareElement(){
+         var elem = document.getElementById("pp");
+    elem.style.position = "absolute"; //表示定位于相对于包含它的元素的指定坐标
+    elem.style.left = "0px";
+    elem.style.top = "0px";
+    }
+            function moveElement(elementId,final_x,final_y,interval){
+             
+                    //验证元素是否存在
+              if(!elementId) return false; //当elementId为空时对应值false，加！为真，则不再向下执行，
+            
+                    //获得指定元素
+                    //var elem=document.getElementById(elementId);
+              var elem = document.getElementById(elementId);
+              
+                    //获得现在的坐标
+              var x=parseInt(elem.style.left);
+              var y=parseInt(elem.style.top);
+                    //判断是否到了指定位置
+               if(x==final_x && y==final_y) return;
+                    //没有到达时继续向执行
+                if(x>final_x){
+                x--;
+                }
+                if(x<final_x){
+                x++;
+                }
+                if(y>final_y){
+                y--;
+                }
+                if(y<final_y){
+                y++;
+                }
+                
+                    //修改坐标位置
+                elem.style.left=x+"px";
+                elem.style.top=y+"px";
+                    
+                    //自己调自己，实现连续移动
+                js="moveElement('"+elementId+"',"+final_x+","+final_y+","+interval+")";
+                    //此句代码很费解，elementId,final_x等是变量，所有要在引号外，
+                       //而elementId加两层引号是因为elementId中传来的是字符串的变量
+                setTimeout(js,interval); 
+                    //setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。
+                    //提示：setTimeout() 只执行 code 一次。
+                    //如果要多次调用，请使用 setInterval() 或者让 code 自身再次调用 setTimeout()。
+                 
+            }
+            
+            window.onload=function() {
+            prepareElement();
+            moveElement("pp",200,100,100);//括号中分别代表 元素ID，X移动多少，Y移动多少，多长时间完成移动
+            }
+        </script>
+    </head>
+    <body>
+        <p id="pp">我是一个移动元素 </p>
+        
+    </body>
+</html>

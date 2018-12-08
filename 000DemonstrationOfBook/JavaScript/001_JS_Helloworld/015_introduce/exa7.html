@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>有参数函数function with parameter</title>
+	<script type="text/javascript">
+		function news(n)
+		{
+			var a;
+			a ="";
+			for(i=0;i<n;i++)
+				a=a+"///";
+			return a;
+		}
+	</script>
+</head>
+<body>
+	<center>
+		<script type="text/javascript">
+			for(j=0;j<6;j+=2)
+				document.write(news(j)+" 这是标题文字"+news(j)+"<br>");
+		</script>
+	</center>
+</body>
+</html>

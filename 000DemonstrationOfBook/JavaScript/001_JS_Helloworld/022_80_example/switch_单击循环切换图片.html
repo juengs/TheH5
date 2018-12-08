@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>单击循环切换图片</title>
+<script>
+var i = 1;
+function nextImg(){
+i++;
+//步骤2：获取页面元素
+var next = document.getElementById("nImg");
+//步骤3：更改元素的src属性
+next.src = "images/"+i+".jpg";
+if(i==3){
+i=0;
+} 
+}
+</script>
+</head>
+<body>
+<div>
+<!--步骤1：绑定onclick事件-->
+<button onclick="nextImg()">下一张</button>
+<br />
+<!--需自己准备3张图片-->
+<img src="images/1.jpg" id="nImg" width="600px" height="400px" />
+</div>
+</body>
+</html>

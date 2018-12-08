@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>闪电闪烁背景</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		function blinkOn(){
+		theWin.document.bgColor = "000000"
+		nTimes++
+		JSCTimeOutID = window.setTimeout("blinkOff()",50);
+		}
+		function blinkOff(){
+		theWin.document.bgColor = "FFFFFF"
+		if (nTimes < 3)
+		JSCTimeOutID = window.setTimeout("blinkOn()",50);
+		else theWin.history.go(0)
+		}
+		function blinkit(aWin)
+		{
+		nTimes = 0
+		theWin = aWin
+		JSCTimeOutID = window.setTimeout("blinkOn()",50);
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<div align="center">
+			<p>
+				<input type="button" name="identifier" value="yeah,Hello world form ZJF." onclick="blinkit(self)">
+			</p>
+		</div>
+	</form>
+
+</body>
+</html>

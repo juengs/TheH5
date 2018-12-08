@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>停留事件的显示</title>
+	<script type="text/javascript">
+		var time_start = new Date();
+		var clock_start = time_start.getTime();
+		function showtime(){
+			var hours = time_start.getHours();
+			var minutes = time_start.getMinutes();
+			var showtime = hours+":"+minutes;
+			document.s.time_spent1.value=showtime;
+		}
+		function time_spent(){
+			var time_now = new Date();
+			var spent_time=((time_now.getTime() - clock_start)/1000);
+			return spent_time;
+		}
+		function show_spent(){
+			var total_time = Math.round(time_spent());
+			var i_seconds_spent = total_time % 60;
+			var i_minutes_spent = Math.round((total_time-30/60));
+			var i_seconds_spent = "" + ((i_seconds_spent>9)? i_seconds_spent:"0"+i_seconds_spent); //01
+			var s_minutes_spent = "" + ((i_minutes_spent>9)? i_minutes_spent:"0"+i_minutes_spent); //08
+			document.s.time_spent2.value=s_minutes_spent+":"+i_seconds_spent;
+			window.setTimeout('show_spent()',1000);
+		}
+	</script>
+</head>
+<body onload="showtime();show_spent()">
+	<form name="s" onsubmit="0">进站时间为:
+		<input type="text" name="time_spent1" size="7"><br>
+		在本站停留时间为:
+		<input type="text" name="time_spent2" size="7"><br>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>wave滤镜filter</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<center>
+		<table>
+			<tr>
+				<td>原始图片</td>
+				<td>波浪效果1</td>
+				<td>波浪效果2</td>
+			</tr>
+			<tr>
+				<td><img src="images/1.jpg"></td>
+				<!-- 函数没有变蓝色 证明h5不支持 -->
+				<td><img src="images/1.jpg" style="filter: wave(freq=5,strength=20,lightstrength=10,phase=50)"></td>
+				<!-- 添加线1，频率，压力，亮压力，阶级 -->
+				<td><img src="images/1.jpg" style="filter: wave(add=1,freq=2,strength=50,lightstrength=100,phase=100)"></td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>

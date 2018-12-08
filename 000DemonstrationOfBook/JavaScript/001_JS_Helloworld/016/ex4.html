@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>剩余时间的显示</title>
+	<script type="text/javascript">
+		var d_Hour = -1;
+		var d_Minute = -1;
+		var d_Second = -1;
+		var f_day = new Date("December 31, 2018 23:59:59"); //front
+		// format: month:year:time.
+
+		function clock(){ //clock
+			var time = new Date();//system time
+			var hour = time.getHours(); //hour
+			var minute = time.getMinutes(); //minute
+			var second = time.getSeconds(); //second
+			var c_Hour = d_Hour; //current
+			var c_Minute = d_Minute; //current
+			var c_Second = d_Second; //millisecond 
+			//residue remind 
+			var r_time = f_day.getTime() - time.getTime(); 
+			// day hour rest 
+			d_Hour = Math.floor(r_time/(24*60*60*1000));//地板
+			r_time -= d_Hour*(24*60*60*1000); //rest totally
+			d_Minute = Math.floor(r_time/(60*60*1000)); //mathematic
+			r_time -= d_Minute*(60*60*1000);  // rest 
+			d_Second = Math.floor(r_time/(60*1000)); //
+			r_time -= d_Second*(60*1000);
+
+			var d_time = Math.floor(r_time/1000);
+			if(c_Hour != d_Hour) document.formnow.t.value=d_Hour;
+			if(c_Minute != d_Minute) document.formnow.h.value=d_Minute;
+			if(c_Second != d_Second) document.formnow.m.value=d_Second;
+			document.formnow.c.value=d_time;
+			setTimeout("clock()",1000);
+
+		}
+	</script>
+</head>
+<body onload="clock()">
+	<font size="2" face="黑体">
+		<form name="formnow"><br>
+			再过<input type="text" name="t" size="4">
+			天 <input type="text" name="h" size="2">
+			小时<input type="text" name="m" size="2">
+			分 <input type="text" name="c" size="2">秒就是2019年啦!<br>
+			
+		</form>
+	</font>
+
+</body>
+</html>

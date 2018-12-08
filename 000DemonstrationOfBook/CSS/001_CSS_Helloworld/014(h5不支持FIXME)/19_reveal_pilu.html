@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>动作转换滤镜 move transfer filter</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		function tr() //transfer
+		{
+			if (textc.filters.revealTrans.status != 2) {
+				textc.filters.revealTrans.apply();
+				textc.innerText="此为转换后的文字";//设定转换后的文字
+				textc.filters.revealTrans.play();
+			}
+		}
+		function pr()
+		{
+			if (picc.filters.revealTrans.status != 2) {
+				picc.filters.revealTrans.apply();
+				picc.src="images/1.jpg";
+				picc.filters.revealTrans.play();
+			}
+		}
+	</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				<div id="textc" style="width: 200px;height: 110px;background-color: lightyellow;color: blue;filter: revealTrans(duration=2,transition=14);">
+					这是代码为14的文字转换效果
+				</div>
+			</td>
+			<!-- 多一行 row 作为分割 -->
+			<td></td>
+			<td>
+				<img id="picc" src="images/1.jpg" style="filter: revealTrans(duration=2,transition=3); height: 110px;">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="tr()">执行文字转换</button>
+			</td>
+			<td></td>
+			<td>
+				<button onclick="pr()">执行图片转换</button>
+			</td>
+		</tr>
+	</table>
+	<p>如果要再次执行转换,单击工具栏上的刷新按钮即可</p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<div id="showStr"></div>
+<div style="display:none" id="string">
+逐字出来的效果，哈哈哈哈哈哈哈哈哈
+</div>  
+<script type="text/javascript">
+  var index = 0;  
+  var str = document.getElementById("string").innerHTML;  
+  setInterval(function() {  
+   if(index == str.length) { 
+//清除定时器
+clearInterval();
+//若要让效果无限循环，把index归0即可
+// index = 0;
+}  
+var a = document.getElementById("showStr")
+a.innerText = str.substring(0, index++);
+},400)
+</script>
+</body>
+</html>

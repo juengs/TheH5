@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<title>FIXME***** age gender=sex </title>
+	<meta charset="utf-8">
+
+	<style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            display: block;
+            border:1px solid #090;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            margin: 50px auto;
+            text-indent: 2em;
+        }
+        p{
+            width: 180px;
+            padding-left: 10px;
+            padding-right: 10px;
+            height: 40px;
+            background: #090;
+            color: #fff;
+            line-height: 40px;
+            margin: 0 auto;
+        }
+    </style>
+
+</head>
+<body>
+	<input type="text" id="inputAge" value="411221198909044512">
+	<input type="button" id="display" value="display" onclick="typeInAge()">
+	<hr>
+	<input type="text" id='btn' disable='disable' value="type in 123">
+	<p id="title"></p>
+
+
+	<script type="text/javascript">
+		function GetAge(identityCard) {
+    var len = (identityCard + "").length;
+    if (len == 0) {
+        return 0;
+    } else {
+        if ((len != 15) && (len != 18))//身份证号码只能为15位或18位其它不合法
+        {
+            return 0;
+        }
+    }
+    var strBirthday = "";
+    if (len == 18)//处理18位的身份证号码从号码中得到生日和性别代码
+    {
+        strBirthday = identityCard.substr(6, 4) + "/" + identityCard.substr(10, 2) + "/" + identityCard.substr(12, 2);
+    }
+    if (len == 15) {
+        strBirthday = "19" + identityCard.substr(6, 2) + "/" + identityCard.substr(8, 2) + "/" + identityCard.substr(10, 2);
+    }
+    //时间字符串里，必须是“/”
+    var birthDate = new Date(strBirthday);
+    var nowDateTime = new Date();
+    var age = nowDateTime.getFullYear() - birthDate.getFullYear();
+    //再考虑月、天的因素;.getMonth()获取的是从0开始的，这里进行比较，不需要加1
+    if (nowDateTime.getMonth() < birthDate.getMonth() || (nowDateTime.getMonth() == birthDate.getMonth() && nowDateTime.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+	</script>
+	<!-- FIXME -->
+	<script type="text/javascript">
+		function typeInAge(){
+			var valueAge = document.getElementById('inputAge').value;
+			var ageDisplayObject = document.getElementById('display')
+			var oTi = document.getElementById('title');
+			ageDisplayObject.value  = GetAge(age);
+			oTi.innerHTML = GetAge(age);
+
+		}
+	</script>
+	<!-- DONE 同步显示输入的值input-->
+	<script type="text/javascript">
+		var oBtn = document.getElementById('btn');
+        var oTi = document.getElementById('title');
+        if('oninput' in oBtn){ 
+                oBtn.addEventListener("input",getWord,false); 
+            }else{ 
+                oBtn.onpropertychange = getWord; 
+            }
+        // var ie = !!window.ActiveXObject; 
+     //    if(ie){ 
+     //        oBtn.onpropertychange = getWord; 
+     //    }else{ 
+     //        oBtn.addEventListener("input",getWord,false); 
+     //    } 
+        function getWord(){
+            oTi.innerHTML = oBtn.value;
+        }
+	</script>
+
+</body>
+</html>

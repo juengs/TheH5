@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>利用10行js代码实现上下滚动公告效果</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		div,ul,li{margin: 0;padding: 0}/*先初始化一下默认样式*/
+		.notice {
+		 width: 300px;/*单行显示，超出隐藏*/
+		 height: 35px;/*固定公告栏显示区域的高度*/
+		 padding: 0 30px;
+		 background-color: #b3effe;
+		 overflow: hidden;
+		}
+		.notice ul li {
+		 list-style: none;
+		 line-height: 35px;
+		 /*以下为了单行显示，超出隐藏*/
+		 display: block;
+		 white-space: nowrap;
+		 text-overflow: ellipsis;
+		 overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="notice">
+	 <ul>
+	 <li>第1条公告第1条公告第1条公告第1条公告第1条公告第1条公告</li>
+	 <li>第2条公告第2条公告第2条公告第2条公告第2条公告第2条公告</li>
+	 <li>第3条公告第3条公告第3条公告第3条公告第3条公告第3条公告</li>
+	 <li>第4条公告第4条公告第4条公告第4条公告第4条公告第4条公告</li>
+	 </ul>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<!-- <script src="noticeUp.js"></script> -->
+	<script type="text/javascript">
+		/*
+		* 参数说明
+		* obj : 动画的节点，本例中是ul
+		* top : 动画的高度，本例中是-35px;注意向上滚动是负数
+		* time : 动画的速度，即完成动画所用时间，本例中是500毫秒，即marginTop从0到-35px耗时500毫秒
+		* function : 回调函数，每次动画完成，marginTop归零，并把此时第一条信息添加到列表最后;
+		* 
+		*/
+		function noticeUp(obj,top,time) {
+		 $(obj).animate({
+		 marginTop: top
+		 }, time, function () {
+		 $(this).css({marginTop:"0"}).find(":first").appendTo(this);
+		 })
+		}
+	</script>
+	<script>
+		 $(function () {
+		 // 调用 公告滚动函数
+		 setInterval("noticeUp('.notice ul','-35px',500)", 2000);
+		 });
+	</script>
+</body>
+</html>

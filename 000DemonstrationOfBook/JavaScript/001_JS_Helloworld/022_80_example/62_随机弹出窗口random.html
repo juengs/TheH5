@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>JS 随机图片效果random pictures</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+img { border: #999999; border-style: dotted; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+-->
+</style>
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+var rand1 = 0;
+var useRand = 0;
+images = new Array;
+images[1] = new Image();
+images[1].src = "images/1.jpg";
+images[2] = new Image();
+images[2].src = "images/2.jpg";
+images[3] = new Image();
+images[3].src = "images/3.jpg";
+images[4] = new Image();
+images[4].src = "images/4.jpg";
+// generic paradigm泛型 encapsulation封装=enclose=potting, inherit
+// swap 交换 switch toggle 打包seal&package poly聚collection
+function swapPic() {
+var imgnum = images.length - 1;
+do {
+var randnum = Math.random();
+rand1 = Math.round((imgnum - 1) * randnum) + 1;
+} while (rand1 == useRand);
+useRand = rand1;
+document.randimg.src = images[useRand].src;
+}
+</script>
+<body bgcolor="#FFFFFF" text="#000000" OnLoad="swapPic()">
+<img name="randimg" src="images/1.jpg">
+</body>
+</html>

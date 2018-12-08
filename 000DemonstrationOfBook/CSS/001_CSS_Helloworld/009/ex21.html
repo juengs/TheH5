@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>边框样式 style</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#c1{border-top-width: 5;border-top-color: red;
+			border-top-style: dotted;} /* 小点+虚线*/
+		#c2{border-right-width: 5px;border-right-color: green;
+			border-right-style: ridge;} /* 3D 凸线*/
+		#c3{border-bottom-width: 5pt;border-bottom-color: blue;
+			border-bottom-style: double;} /* 双直线*/
+		#c4{border-left-width: 5px;border-left-color: black;
+			border-left-style: groove;} /* 3D 凹线，*/
+		#c5{border-width: 5px 5px 5px 5px;border-color: red green blue black;
+			border-style: dotted ridge double groove;} 
+			/* top right bottom left*/
+			/*线分类9种kinds*/
+			/* 虚线 凹凸 双 实线,+其他*/
+			/* dashed solid inset outset */
+			/* 大先虚线 实线 3D框入线 3D隆起线*/
+	</style>
+</head>
+<body>
+	<table border="1">
+		<tr><td id="c5">子曰</td></tr>
+		<tr><td id="c1">子曰：小点+虚线</td></tr>
+		<tr><td id="c2">子曰：3D 凸线</td></tr>
+		<tr><td id="c3">子曰：双直线</td></tr>
+		<tr><td id="c4">子曰：3D 凹线</td></tr>
+	</table>
+
+</body>
+</html>

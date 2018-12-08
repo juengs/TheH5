@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Object</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function person(name,age,sex,city,profession,recordtime){
+			this.name=name;
+			this.age=age;
+			this.sex=sex;
+			this.city=city;
+			this.profession=profession;
+			this.recordtime=recordtime;
+
+		}
+		function showPerson(I){
+			for(var pers in I)
+				alert(" "+pers+" /n/n " +I[pers]+" ");
+		}
+
+		document.write("<center>个人信息表</center>");
+		p1=new person("Jeff","21","male","newYork","Engineer","2018.11.11");
+		document.write('<input type="button" value="ClassOne" onclick="showPerson(p1)">');
+		p2=new person("juneFall","28","famale","LA","QA","2008.2.2")
+		document.write('<input type="button" value="ClassOne" onclick="showPerson(p2)">');
+
+	</script>
+</body>
+</html>

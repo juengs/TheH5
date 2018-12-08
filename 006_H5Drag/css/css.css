@@ -1,0 +1,19 @@
+*{
+	margin: 0;
+	/*padding: 0;*/
+}
+body,html{
+	height: 100%;
+}
+.drag{
+width: 150px;
+height: 150px;
+background-color: #ff33ff;
+}
+.box{
+	width: 500px;
+	height: 500px;
+	border:5px solid red;
+	margin:150px auto 0;  /*上 左右 下*/
+
+}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>for语句</title>
+</head>
+<body>
+	<script type="text/javascript">
+	  for(a=1; a<=8; a++){
+	      doucument.write("<h"+a+">This is subtitle!</h"+a+">");
+	  }
+	</script>
+</body>
+</html>

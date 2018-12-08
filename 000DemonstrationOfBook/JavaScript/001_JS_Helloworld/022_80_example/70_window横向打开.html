@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>用JS打开windows下的几种窗体格式</title>
+
+    <script type="text/javascript">
+        function ow(owurl){  
+            var tmp=window.open("about:blank","","fullscreen=1")  
+            tmp.moveTo(0,0)  
+            tmp.resizeTo(screen.width+20,screen.height)  
+            tmp.focus()  
+            tmp.location=owurl  
+        }  
+        function WinOpen() {  
+            window.open("http://www.baidu.com","DisplayWindow","toolbar=no,,menubar=no,location=no,scrollbars=no");  
+        }  
+    //网页消息对话框  
+    function openModelessDialog(){  
+        var features='status:0;dialogWidth:470px;dialogHeight:270px;resizable:0;scroll:0;center:1';  
+        showModelessDialog("http://www.baidu.com",window,features);  
+    }  
+    //网页对话框，一次只能打开一个  
+    function openModalDialog(){  
+        var features='status:0;dialogWidth:470px;dialogHeight:270px;resizable:0;scroll:0;center:1';  
+        showModalDialog("http://www.baidu.com",window,features);  
+    }
+    //子窗口打开，关闭父窗口  
+    function openChild(){  
+        window.open('http://www.baidu.com/','','width=790,height=590');  
+        window.opener=null;  
+        window.close();  
+    }
+    </script>
+
+</head>
+<body">
+    <button onclick="javascript:ow('http://www.baidu.com')">打开新窗口全屏</button><br>  
+    <button onclick="WinOpen()">正常打开一个弹出窗口</button><br>  
+    <button onclick="openModelessDialog()">网页对话框[打开多个]</button><br>  
+    <button onclick="openModalDialog()">网页对话框[打开一个]</button><br>  
+    <button onclick="openChild()">子窗口打开，关闭父窗口</button><br>  
+</body>
+</html>
